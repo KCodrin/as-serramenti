@@ -1,5 +1,9 @@
 # Changelog
 
+## 2026-11-10 · Primo push su GitHub
+**Cosa:** creato il repository con il contenuto di `Nuovo-Sito/` e caricato su github.com/KCodrin/as-serramenti, ramo `main`. Esclusi i file `.DS_Store`.
+**Verifica:** push completato senza errori.
+
 ## 2026-11-10 · Homepage: spazi e coerenza visiva
 **Cosa:** uniformati gli spazi tra le sezioni (un solo valore per tutte), i titoli delle sezioni (stessa misura), gli angoli arrotondati (due soli valori) e la dimensione dei testi introduttivi. La statistica "0€" diventa "Gratis". Le etichette sulle foto ora si leggono anche su foto chiare. La scritta grande del footer non viene più tagliata. Sistemato lo sfondo del blocco contatti, che restava troppo chiaro, e ridotti i margini su mobile.
 **Perché / Dettagli:** richiesta del cliente: più coerenza visiva e percettiva. Nuovi token in `index.html`: `--sec`, `--gap`, `--h2`, `--r`, `--r-lg`, `--brass-d`.
