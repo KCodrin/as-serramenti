@@ -1,0 +1,585 @@
+<!doctype html>
+<html lang="it">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>AS Serramenti — Serramenti su misura a Torino</title>
+<meta name="description" content="Serramenti in PVC, alluminio e taglio termico, porte, tapparelle e ristrutturazioni chiavi in mano a Torino e Asti. Sopralluogo e preventivo gratuiti.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Inter+Tight:wght@300;400;500;600&family=Instrument+Serif:ital@0;1&display=swap" rel="stylesheet">
+<style>
+:root{
+  --ink:#0e1012; --ink-2:#16191c; --ink-3:#22262a;
+  --paper:#f4f2ee; --paper-2:#e9e5de; --line:rgba(255,255,255,.12); --line-d:rgba(14,16,18,.12);
+  --brass:#b4925e; --brass-2:#d4b483; --muted:#8b9096;
+  --sans:"Inter Tight",system-ui,sans-serif; --serif:"Instrument Serif",Georgia,serif;
+  --pad:clamp(20px,5vw,72px); --sec:clamp(96px,11vw,168px); --gap:clamp(40px,6vw,96px);
+  --h2:300 clamp(40px,5.2vw,84px)/1 var(--sans); --r:20px; --r-lg:28px; --brass-d:#97784a; --ease:cubic-bezier(.2,.7,.1,1);
+}
+*{box-sizing:border-box;margin:0;padding:0}
+html{scroll-behavior:smooth}
+body{background:var(--paper);color:var(--ink);font:400 17px/1.6 var(--sans);-webkit-font-smoothing:antialiased;overflow-x:hidden}
+img{display:block;width:100%;height:100%;object-fit:cover}
+a{color:inherit;text-decoration:none}
+em{font-family:var(--serif);font-style:italic;font-weight:400}
+.wrap{padding:0 var(--pad);max-width:1600px;margin:0 auto}
+.eyebrow{font-size:12px;margin-bottom:22px;letter-spacing:.22em;text-transform:uppercase;color:var(--brass);display:flex;align-items:center;gap:12px}
+.eyebrow::before{content:"";width:28px;height:1px;background:currentColor}
+.btn{display:inline-flex;align-items:center;gap:12px;padding:16px 26px;border-radius:999px;font-size:14px;font-weight:500;letter-spacing:.02em;cursor:pointer;transition:.4s var(--ease);border:1px solid transparent}
+.btn-brass{background:var(--brass);color:var(--ink)}
+.btn-brass:hover{background:var(--brass-2)}
+.btn-ghost{border-color:rgba(255,255,255,.35);color:#fff}
+.btn-ghost:hover{background:#fff;color:var(--ink)}
+.btn .arr{transition:transform .4s var(--ease)}
+.btn:hover .arr{transform:translateX(4px)}
+
+/* reveal */
+.rv{opacity:0;transform:translateY(40px);transition:opacity 1.1s var(--ease),transform 1.1s var(--ease)}
+.rv.in{opacity:1;transform:none}
+.rv.d1{transition-delay:.1s}.rv.d2{transition-delay:.2s}.rv.d3{transition-delay:.3s}
+
+/* ===== NAV ===== */
+.topbar{position:fixed;inset:0 0 auto;z-index:60;font-size:12.5px;color:rgba(255,255,255,.7);border-bottom:1px solid var(--line);transition:transform .5s var(--ease)}
+.topbar .wrap{display:flex;justify-content:space-between;height:38px;align-items:center}
+.topbar span{margin-right:26px}
+.topbar b{color:#fff;font-weight:500}
+header.nav{position:fixed;top:38px;left:0;right:0;z-index:50;color:#fff;transition:top .5s var(--ease),background .5s,color .5s,box-shadow .5s}
+header.nav .wrap{display:flex;align-items:center;justify-content:space-between;height:84px}
+body.scrolled .topbar{transform:translateY(-100%)}
+body.scrolled header.nav{top:0;background:rgba(244,242,238,.86);backdrop-filter:blur(18px) saturate(1.4);-webkit-backdrop-filter:blur(18px) saturate(1.4);color:var(--ink);box-shadow:0 1px 0 var(--line-d)}
+.logo{display:flex;align-items:center;gap:14px;cursor:default}
+.logo svg{width:38px;height:38px;flex:none}
+.logo .word{display:flex;flex-direction:column;line-height:1}
+.logo .as{font:600 21px/1 var(--sans);letter-spacing:.14em}
+.logo .ser{font:400 10.5px/1 var(--sans);letter-spacing:.42em;text-transform:uppercase;margin-top:6px;opacity:.75}
+.menu{display:flex;gap:6px;list-style:none;align-items:center}
+.menu>li{position:relative}
+.menu>li>span{display:flex;align-items:center;gap:6px;padding:12px 14px;font-size:14.5px;font-weight:450;cursor:default;opacity:.9;transition:opacity .3s}
+.menu>li:hover>span{opacity:1}
+.menu>li>span::after{content:"";position:absolute;left:14px;right:14px;bottom:6px;height:1px;background:currentColor;transform:scaleX(0);transform-origin:left;transition:transform .45s var(--ease)}
+.menu>li:hover>span::after{transform:scaleX(1)}
+.caret{width:8px;height:8px;border-right:1.4px solid currentColor;border-bottom:1.4px solid currentColor;transform:rotate(45deg) translateY(-3px);opacity:.6}
+.mega{position:absolute;top:100%;left:50%;width:760px;transform:translate(-50%,12px);opacity:0;visibility:hidden;transition:.45s var(--ease);background:var(--paper);color:var(--ink);border-radius:18px;padding:14px;display:grid;grid-template-columns:1fr 1fr 1.05fr;gap:6px;box-shadow:0 30px 80px -20px rgba(0,0,0,.35)}
+.menu>li:hover .mega{opacity:1;visibility:visible;transform:translate(-50%,0)}
+.mega h6{font-size:11px;letter-spacing:.2em;text-transform:uppercase;color:var(--muted);font-weight:500;padding:14px 14px 8px}
+.mega .it{display:block;padding:12px 14px;border-radius:10px;cursor:default;transition:background .3s}
+.mega .it:hover{background:var(--paper-2)}
+.mega .it b{display:block;font-weight:500;font-size:15px}
+.mega .it small{font-size:12.5px;color:var(--muted)}
+.mega .feat{border-radius:12px;overflow:hidden;position:relative;min-height:240px;color:#fff}
+.mega .feat img{position:absolute;inset:0}
+.mega .feat div{position:absolute;inset:auto 0 0;padding:18px;background:linear-gradient(transparent,rgba(0,0,0,.75))}
+.mega .feat b{font:400 26px/1.1 var(--serif)}
+.nav-cta{display:flex;align-items:center;gap:18px}
+.nav-cta .tel{font-size:14px;opacity:.85;cursor:default}
+.nav .btn{padding:12px 20px;cursor:default}
+body.scrolled .nav .btn-ghost{border-color:var(--ink);color:var(--ink)}
+.burger{display:none;width:44px;height:44px;border-radius:50%;border:1px solid currentColor;align-items:center;justify-content:center;flex-direction:column;gap:5px;opacity:.8}
+.burger i{display:block;width:16px;height:1.4px;background:currentColor}
+
+/* ===== HERO ===== */
+.hero{position:relative;height:100vh;min-height:720px;color:#fff;overflow:hidden;background:var(--ink)}
+.hero .bg{position:absolute;inset:0}
+.hero .bg img{transform:scale(1.15);animation:heroZoom 2.8s var(--ease) forwards;filter:saturate(.85)}
+@keyframes heroZoom{to{transform:scale(1.02)}}
+.hero::after{content:"";position:absolute;inset:0;background:linear-gradient(180deg,rgba(14,16,18,.55) 0%,rgba(14,16,18,.1) 35%,rgba(14,16,18,.25) 60%,rgba(14,16,18,.88) 100%)}
+/* "window frame" that opens on load */
+.hero .frame{position:absolute;inset:0;z-index:2;pointer-events:none;display:grid;grid-template-columns:1fr 1fr}
+.hero .frame i{background:var(--ink);transition:transform 1.6s cubic-bezier(.7,0,.2,1) .25s}
+.hero .frame i:first-child{transform-origin:left}
+.hero .frame i:last-child{transform-origin:right}
+.hero.open .frame i{transform:scaleX(0)}
+.hero .content{position:absolute;z-index:3;left:0;right:0;bottom:0;padding-bottom:clamp(40px,7vh,90px)}
+.hero h1{font:300 clamp(48px,8.4vw,148px)/.92 var(--sans);letter-spacing:-.045em;max-width:13ch}
+.hero h1 em{color:var(--brass-2);letter-spacing:-.02em}
+.hero h1 .ln{display:block;overflow:hidden}
+.hero h1 .ln>span{display:block;transform:translateY(105%);transition:transform 1.3s var(--ease)}
+.hero.open h1 .ln>span{transform:none}
+.hero.open h1 .ln:nth-child(1)>span{transition-delay:1.05s}
+.hero.open h1 .ln:nth-child(2)>span{transition-delay:1.18s}
+.hero.open h1 .ln:nth-child(3)>span{transition-delay:1.31s}
+.hero-row{display:flex;justify-content:space-between;align-items:flex-end;gap:40px;margin-top:40px;padding-top:30px;border-top:1px solid var(--line);opacity:0;transform:translateY(20px);transition:1s var(--ease) 1.6s}
+.hero.open .hero-row{opacity:1;transform:none}
+.hero-row p{max-width:440px;color:rgba(255,255,255,.78);font-size:17px}
+.hero-row .acts{display:flex;gap:12px;flex-wrap:wrap}
+.hero .side{position:absolute;z-index:3;right:var(--pad);top:50%;transform:translateY(-50%);writing-mode:vertical-rl;font-size:11px;letter-spacing:.35em;text-transform:uppercase;color:rgba(255,255,255,.55)}
+.scrollcue{position:absolute;z-index:3;left:50%;bottom:22px;width:1px;height:46px;background:rgba(255,255,255,.2);overflow:hidden}
+.scrollcue::after{content:"";position:absolute;inset:0;background:#fff;animation:cue 2.2s infinite var(--ease)}
+@keyframes cue{0%{transform:translateY(-100%)}100%{transform:translateY(100%)}}
+
+/* ===== BRANDS ===== */
+.brands{background:var(--ink);color:#fff;padding:34px 0;overflow:hidden;border-top:1px solid var(--line)}
+.brands .lbl{text-align:center;font-size:11px;letter-spacing:.3em;text-transform:uppercase;color:var(--muted);margin-bottom:22px}
+.track{display:flex;gap:80px;width:max-content;animation:marq 38s linear infinite}
+.track span{font:400 34px/1 var(--serif);color:rgba(255,255,255,.55);white-space:nowrap;display:flex;align-items:center;gap:80px}
+.track span::after{content:"✦";font-size:12px;color:var(--brass)}
+@keyframes marq{to{transform:translateX(-50%)}}
+
+/* ===== MANIFESTO ===== */
+.manifesto{padding:var(--sec) 0}
+.manifesto .grid{display:grid;grid-template-columns:1fr 3fr;gap:var(--gap)}
+.manifesto .eyebrow{margin-top:.9em}
+.manifesto p.big{font:300 clamp(30px,3.6vw,58px)/1.14 var(--sans);letter-spacing:-.03em}
+.manifesto p.big .w{color:rgba(14,16,18,.14);transition:color .5s}
+.manifesto p.big .w.on{color:var(--ink)}
+.manifesto p.big em{color:var(--brass)}
+.manifesto .stats{display:grid;grid-template-columns:repeat(4,1fr);margin-top:var(--sec);border-top:1px solid var(--line-d)}
+.stat{padding:32px 32px 0 0}
+.stat b{display:block;font:300 clamp(44px,5vw,80px)/1 var(--sans);letter-spacing:-.04em}
+.stat b sup{font-size:.4em;color:var(--brass);vertical-align:top;margin-left:4px}
+.stat span{font-size:15px;color:var(--muted);display:block;margin-top:12px;max-width:22ch}
+
+/* ===== PRODUCTS ===== */
+.products{padding:0 0 var(--sec)}
+.sec-head{display:flex;justify-content:space-between;align-items:flex-end;gap:var(--gap);margin-bottom:64px}
+.sec-head h2{font:var(--h2);letter-spacing:-.045em}
+.sec-head h2 em,.area h2 em,.manifesto p.big em{color:var(--brass-d)}
+.lead,.sec-head p{font-size:18px;line-height:1.6}
+.sec-head p{max-width:400px;color:#555b61;padding-bottom:8px}
+.pgrid{display:grid;grid-template-columns:repeat(12,1fr);gap:18px}
+.card{position:relative;border-radius:var(--r);overflow:hidden;color:#fff;cursor:default;isolation:isolate;min-height:520px}
+.card:nth-child(1){grid-column:span 7;min-height:600px}
+.card:nth-child(2){grid-column:span 5;min-height:600px}
+.card:nth-child(n+3){grid-column:span 4;min-height:460px}
+.card img{position:absolute;inset:0;z-index:-2;transition:transform 1.4s var(--ease)}
+.card::before{content:"";position:absolute;inset:0;z-index:-1;background:linear-gradient(180deg,rgba(0,0,0,.05) 30%,rgba(0,0,0,.8));transition:opacity .6s}
+.card:hover img{transform:scale(1.06)}
+.card .num{position:absolute;top:26px;left:30px;font-size:12px;letter-spacing:.2em;opacity:.8}
+.card .tag{position:absolute;top:22px;right:24px;font-size:11.5px;letter-spacing:.1em;padding:7px 12px;border-radius:99px;background:rgba(14,16,18,.45);backdrop-filter:blur(10px);-webkit-backdrop-filter:blur(10px)}
+.card .body{position:absolute;left:0;right:0;bottom:0;padding:30px 100px 30px 30px}
+.card h3{font:400 clamp(30px,2.8vw,46px)/1.02 var(--sans);letter-spacing:-.035em}
+.card h3 em{color:var(--brass-2)}
+.card p{max-height:0;opacity:0;overflow:hidden;transition:max-height .7s var(--ease),opacity .5s,margin .6s;color:rgba(255,255,255,.8);font-size:15px;max-width:42ch}
+.card:hover p{max-height:120px;opacity:1;margin-top:12px}
+.card .go{position:absolute;right:30px;bottom:30px;width:52px;height:52px;border-radius:50%;border:1px solid rgba(255,255,255,.4);display:grid;place-items:center;transition:.5s var(--ease)}
+.card:hover .go{background:var(--brass);border-color:var(--brass);color:var(--ink);transform:rotate(-45deg)}
+
+/* ===== FEATURE (Pilar-like) ===== */
+.feature{background:var(--ink);color:#fff;padding:var(--sec) 0;position:relative;overflow:hidden}
+.feature .grid{display:grid;grid-template-columns:1fr 1fr;gap:var(--gap);align-items:start}
+.feature .media{position:sticky;top:110px;height:calc(100vh - 160px);min-height:520px;border-radius:var(--r);overflow:hidden}
+.feature .media img{position:absolute;inset:0;opacity:0;transform:scale(1.08);transition:opacity 1s var(--ease),transform 1.6s var(--ease)}
+.feature .media img.on{opacity:1;transform:scale(1)}
+.feature .media .badge{position:absolute;left:22px;bottom:22px;z-index:2;padding:14px 18px;border-radius:14px;background:rgba(14,16,18,.55);backdrop-filter:blur(14px);-webkit-backdrop-filter:blur(14px);font-size:13px;display:flex;gap:12px;align-items:center}
+.feature .media .badge b{font:400 22px/1 var(--serif);color:var(--brass-2)}
+.feature h2{font:var(--h2);letter-spacing:-.045em;margin-bottom:28px}
+.feature h2 em{color:var(--brass-2)}
+.feature .lead{color:rgba(255,255,255,.65);max-width:48ch}
+.feature .media{top:120px}
+.fitem{padding:48px 0;border-top:1px solid var(--line);opacity:.32;transition:opacity .6s}
+.fitem.on{opacity:1}
+.lead+.fitem{margin-top:64px}
+.fitem .k{font-size:12px;letter-spacing:.24em;text-transform:uppercase;color:var(--brass)}
+.fitem h3{font:400 clamp(28px,2.6vw,40px)/1.1 var(--sans);letter-spacing:-.03em;margin:12px 0 14px}
+.fitem p{color:rgba(255,255,255,.7);max-width:46ch}
+.fitem ul{list-style:none;margin-top:22px;display:flex;flex-wrap:wrap;gap:8px}
+.fitem li{font-size:13px;padding:8px 14px;border:1px solid var(--line);border-radius:99px;color:rgba(255,255,255,.8)}
+
+/* ===== RISTRUTTURAZIONI ===== */
+.reno{position:relative;min-height:100vh;color:#fff;display:flex;align-items:flex-end;overflow:hidden}
+.reno .bg{position:absolute;inset:-10% 0;will-change:transform}
+.reno::after{content:"";position:absolute;inset:0;background:linear-gradient(90deg,rgba(14,16,18,.88) 0%,rgba(14,16,18,.45) 55%,rgba(14,16,18,.2)),linear-gradient(transparent 50%,rgba(14,16,18,.75))}
+.reno .wrap{position:relative;z-index:2;width:100%;padding-bottom:var(--sec)}
+.reno h2{font:300 clamp(46px,6.4vw,108px)/.96 var(--sans);letter-spacing:-.05em;max-width:12ch;margin-bottom:28px}
+.reno h2 em{color:var(--brass-2)}
+.reno .lead{max-width:520px;color:rgba(255,255,255,.78);margin-bottom:56px}
+.svc{display:grid;grid-template-columns:repeat(4,1fr);border-top:1px solid rgba(255,255,255,.2)}
+.svc div{padding:26px 26px 0 0;border-right:1px solid rgba(255,255,255,.12);margin-right:26px}
+.svc div:last-child{border:0}
+.svc b{display:block;font-weight:500;font-size:18px;margin-bottom:8px}
+.svc span{font-size:14px;color:rgba(255,255,255,.6)}
+
+/* ===== METODO ===== */
+.method{padding:var(--sec) 0;background:var(--paper)}
+.steps{display:grid;grid-template-columns:repeat(4,1fr);gap:18px}
+.step{background:#fff;border-radius:var(--r);padding:34px 30px 36px;position:relative;overflow:hidden;min-height:320px;display:flex;flex-direction:column;transition:transform .6s var(--ease),background .6s,color .6s}
+.step:hover{transform:translateY(-8px);background:var(--ink);color:#fff}
+.step .n{font:400 72px/1 var(--serif);color:var(--brass);margin-bottom:auto}
+.step h3{font:500 22px/1.2 var(--sans);letter-spacing:-.02em;margin:48px 0 10px}
+.step p{font-size:15px;color:var(--muted)}
+.step .pill{position:absolute;top:28px;right:26px;font-size:11px;letter-spacing:.14em;text-transform:uppercase;background:var(--paper-2);color:var(--ink);padding:6px 11px;border-radius:99px}
+
+/* ===== LAVORI ===== */
+.works{background:var(--ink);color:#fff;padding:var(--sec) 0;overflow:hidden}
+.works .sec-head h2 em{color:var(--brass-2)}
+.works .sec-head p{color:rgba(255,255,255,.6)}
+.hscroll{display:flex;gap:18px;padding:0 var(--pad);will-change:transform}
+.wk{flex:none;width:clamp(300px,34vw,560px);cursor:default}
+.wk .ph{aspect-ratio:4/5;border-radius:var(--r);overflow:hidden}
+.wk:nth-child(even) .ph{aspect-ratio:4/3;margin-top:80px}
+.wk .ph img{transition:transform 1.4s var(--ease)}
+.wk:hover .ph img{transform:scale(1.05)}
+.wk .meta{display:flex;justify-content:space-between;padding-top:16px;font-size:14px}
+.wk .meta span{color:var(--muted)}
+
+/* ===== AREA ===== */
+.area{padding:var(--sec) 0}
+.area .grid{display:grid;grid-template-columns:1fr 1fr;gap:var(--gap);align-items:center}
+.area h2{font:var(--h2);letter-spacing:-.045em;margin-bottom:28px}
+.area h2 em{color:var(--brass)}
+.area p{color:#555b61;max-width:48ch;font-size:18px}
+.towns{display:flex;flex-wrap:wrap;gap:8px;margin-top:34px}
+.towns span{font-size:13.5px;padding:9px 15px;border:1px solid var(--line-d);border-radius:99px;transition:.3s;cursor:default}
+.towns span:hover{background:var(--ink);color:#fff;border-color:var(--ink)}
+.map{aspect-ratio:1;border-radius:var(--r);background:var(--ink);position:relative;overflow:hidden}
+.map svg{position:absolute;inset:0;width:100%;height:100%}
+.map .pulse{transform-origin:center;transform-box:fill-box;animation:pulse 2.6s infinite var(--ease)}
+@keyframes pulse{0%{transform:scale(.4);opacity:.9}100%{transform:scale(3.2);opacity:0}}
+
+/* ===== CTA ===== */
+.cta{padding:0}
+.cta-box{position:relative;border-radius:var(--r-lg);overflow:hidden;color:#fff;padding:clamp(40px,6vw,96px);display:grid;grid-template-columns:1fr 1fr;gap:var(--gap);background:var(--ink)}
+.cta-box .bg{position:absolute;inset:0;opacity:.2}
+.cta-box::after{content:"";position:absolute;inset:0;background:radial-gradient(circle at 80% 20%,rgba(180,146,94,.3),transparent 55%),linear-gradient(90deg,rgba(14,16,18,.85),rgba(14,16,18,.55))}
+.cta-box>*{position:relative;z-index:2}
+.cta-box>.bg{position:absolute;z-index:0;opacity:.5}
+.cta h2{font:var(--h2);letter-spacing:-.045em;margin-bottom:28px}
+.cta h2 em{color:var(--brass-2)}
+.cta .info{margin-top:44px;display:grid;gap:18px;font-size:15px}
+.cta .info small{display:block;font-size:11px;letter-spacing:.2em;text-transform:uppercase;color:var(--muted);margin-bottom:4px}
+.form{background:rgba(244,242,238,.06);border:1px solid var(--line);backdrop-filter:blur(20px);-webkit-backdrop-filter:blur(20px);border-radius:var(--r);padding:34px;display:grid;gap:14px;align-content:start}
+.form h4{font:400 30px/1.1 var(--serif);margin-bottom:6px}
+.field{border-bottom:1px solid rgba(255,255,255,.2);padding:12px 0 10px;font-size:15px;color:rgba(255,255,255,.5)}
+.chips{display:flex;flex-wrap:wrap;gap:8px;padding:6px 0}
+.chips span{font-size:13px;padding:8px 13px;border:1px solid var(--line);border-radius:99px;color:rgba(255,255,255,.8)}
+.chips span.on{background:var(--brass);border-color:var(--brass);color:var(--ink)}
+.form .btn{justify-content:center;margin-top:10px;cursor:default}
+
+/* ===== FOOTER ===== */
+footer{padding:var(--sec) 0 32px}
+.fgrid{display:grid;grid-template-columns:2fr 1fr 1fr 1fr;gap:var(--gap);padding-bottom:64px;border-bottom:1px solid var(--line-d)}
+footer h5{font-size:11px;letter-spacing:.22em;text-transform:uppercase;color:var(--muted);font-weight:500;margin-bottom:18px}
+footer li{list-style:none;font-size:15px;margin-bottom:9px;cursor:default}
+footer .logo{color:var(--ink)}
+footer .claim{font:400 30px/1.15 var(--serif);max-width:18ch;margin-top:30px}
+.giant{font:600 16.8vw/.85 var(--sans);letter-spacing:-.06em;color:var(--ink);margin:56px 0 32px;white-space:nowrap}
+@media (min-width:1600px){.giant{font-size:262px}}
+.giant em{font-weight:400;color:var(--brass)}
+.legal{display:flex;justify-content:space-between;flex-wrap:wrap;gap:12px;font-size:13px;color:var(--muted)}
+
+/* ===== RESPONSIVE ===== */
+@media (max-width:1180px){.menu,.nav-cta .tel{display:none}.burger{display:flex}}
+@media (max-width:900px){
+  .topbar{display:none} header.nav{top:0}
+  .manifesto .grid,.feature .grid,.area .grid,.cta-box{grid-template-columns:1fr}
+  .manifesto .stats{grid-template-columns:1fr 1fr}
+  .card:nth-child(n){grid-column:span 12;min-height:460px}
+  .card p{max-height:120px;opacity:1;margin-top:12px}
+  .feature .media{position:relative;top:0;height:60vh;min-height:380px}
+  .svc{grid-template-columns:1fr 1fr;gap:20px 0}
+  .steps{grid-template-columns:1fr 1fr}
+  .card:nth-child(n){min-height:420px}
+  .card .body{padding-right:96px}
+  .sec-head{flex-direction:column;align-items:flex-start}
+  .fgrid{grid-template-columns:1fr 1fr}
+  .hero-row{flex-direction:column;align-items:flex-start}
+  .hero .side{display:none}
+  .cta-box{padding:32px 22px;gap:40px}
+  .form{padding:26px 22px}
+  .wk:nth-child(even) .ph{margin-top:40px}
+}
+@media (max-width:560px){
+  .steps,.svc{grid-template-columns:1fr}
+  .nav-cta .btn{display:none}
+  .fgrid{grid-template-columns:1fr}
+}
+@media (prefers-reduced-motion:reduce){*,*::before,*::after{animation:none!important;transition:none!important}.rv{opacity:1;transform:none}}
+</style>
+</head>
+<body>
+
+<!-- Logo: quadrato-finestra con montante a croce + scritta -->
+<svg width="0" height="0" style="position:absolute" aria-hidden="true">
+  <symbol id="mark" viewBox="0 0 40 40">
+    <rect x="1.5" y="1.5" width="37" height="37" rx="2" fill="none" stroke="currentColor" stroke-width="1.6"/>
+    <path d="M20 1.5V38.5M1.5 20H38.5" stroke="currentColor" stroke-width="1.2" opacity=".55"/>
+    <rect x="22.5" y="4" width="13.5" height="13.5" fill="#b4925e"/>
+  </symbol>
+</svg>
+
+<div class="topbar"><div class="wrap">
+  <div><span>Via Onorato Vigliani, 199 — Torino</span><span>Lun–Sab 9:00–12:30 · 15:00–19:00</span></div>
+  <div><span><b>Sopralluogo e preventivo gratuiti</b></span><span>Facebook</span><span style="margin:0">Instagram</span></div>
+</div></div>
+
+<header class="nav"><div class="wrap">
+  <div class="logo" aria-label="AS Serramenti">
+    <svg><use href="#mark"/></svg>
+    <div class="word"><span class="as">AS</span><span class="ser">Serramenti</span></div>
+  </div>
+  <ul class="menu">
+    <li><span>Home</span></li>
+    <li><span>Chi siamo</span></li>
+    <li><span>Prodotti <i class="caret"></i></span>
+      <div class="mega">
+        <div>
+          <h6>Serramenti</h6>
+          <span class="it"><b>Serramenti in PVC</b><small>Isolamento e silenzio</small></span>
+          <span class="it"><b>Alluminio e taglio termico</b><small>Linee sottili, alte prestazioni</small></span>
+          <h6>Porte</h6>
+          <span class="it"><b>Porte interne e blindate</b><small>Design e sicurezza</small></span>
+        </div>
+        <div>
+          <h6>Protezione</h6>
+          <span class="it"><b>Tapparelle</b><small>Luce e privacy</small></span>
+          <span class="it"><b>Zanzariere</b><small>Su misura per ogni foro</small></span>
+          <span class="it"><b>Tende da sole</b><small>Ombra per terrazzi e giardini</small></span>
+        </div>
+        <div class="feat"><img src="assets/img/profili.jpg" alt=""><div><small style="letter-spacing:.2em;font-size:10px;text-transform:uppercase;opacity:.8">In evidenza</small><br><b>Profili a confronto</b></div></div>
+      </div>
+    </li>
+    <li><span>Ristrutturazioni <i class="caret"></i></span>
+      <div class="mega" style="width:560px;grid-template-columns:1fr 1fr">
+        <div>
+          <h6>Servizi</h6>
+          <span class="it"><b>Chiavi in mano</b><small>Un unico referente</small></span>
+          <span class="it"><b>Impianti e lavori tecnici</b><small>Elettrico, idraulico, termico</small></span>
+          <span class="it"><b>Decorazioni e cartongesso</b><small>Pareti, controsoffitti, finiture</small></span>
+        </div>
+        <div class="feat"><img src="assets/img/ristrutturazione.jpg" alt=""><div><b>Dalla demolizione<br>alla consegna</b></div></div>
+      </div>
+    </li>
+    <li><span>Progetti realizzati</span></li>
+    <li><span>Contatti</span></li>
+  </ul>
+  <div class="nav-cta">
+    <span class="tel">+39 327 663 9954</span>
+    <span class="btn btn-ghost">Preventivo gratuito</span>
+    <span class="burger" aria-label="Menu"><i></i><i></i></span>
+  </div>
+</div></header>
+
+<!-- HERO -->
+<section class="hero" id="hero">
+  <div class="bg"><img src="assets/img/hero.jpg" alt="Soggiorno luminoso con grandi vetrate"></div>
+  <div class="frame"><i></i><i></i></div>
+  <div class="side">Torino · Asti · Piemonte</div>
+  <div class="content wrap">
+    <h1><span class="ln"><span>Apri la casa</span></span><span class="ln"><span>alla <em>luce</em>,</span></span><span class="ln"><span>chiudi fuori il resto.</span></span></h1>
+    <div class="hero-row">
+      <p>Serramenti in PVC, alluminio e taglio termico su misura, posati con precisione. Più calore d'inverno, più silenzio tutto l'anno.</p>
+      <div class="acts">
+        <span class="btn btn-brass">Richiedi un sopralluogo <span class="arr">→</span></span>
+        <span class="btn btn-ghost">Scopri i prodotti</span>
+      </div>
+    </div>
+  </div>
+  <div class="scrollcue"></div>
+</section>
+
+<!-- BRANDS -->
+<section class="brands">
+  <div class="lbl">Lavoriamo con marchi riconosciuti</div>
+  <div class="track">
+    <span>Rehau</span><span>Aluplast</span><span>Dierre</span><span>Barrier</span><span>SharkNet</span><span>Tor</span><span>Cts Doors</span><span>Tempotest</span>
+    <span>Rehau</span><span>Aluplast</span><span>Dierre</span><span>Barrier</span><span>SharkNet</span><span>Tor</span><span>Cts Doors</span><span>Tempotest</span>
+  </div>
+</section>
+
+<!-- MANIFESTO -->
+<section class="manifesto"><div class="wrap">
+  <div class="grid">
+    <div><div class="eyebrow rv">Chi siamo</div></div>
+    <p class="big" id="words">La differenza tra un serramento installato e un lavoro <em>fatto bene</em> si decide nella posa. Per questo seguiamo ogni cantiere dal sopralluogo alla consegna: misure precise, pulizia, verifiche finali.</p>
+  </div>
+  <div class="stats">
+    <div class="stat rv"><b>Gratis</b><span>Sopralluogo e preventivo, sempre gratuiti</span></div>
+    <div class="stat rv d1"><b data-count="8">0</b><span>Marchi partner selezionati</span></div>
+    <div class="stat rv d2"><b data-count="1">0</b><span>Unico referente per tutto il lavoro</span></div>
+    <div class="stat rv d3"><b data-count="2">0</b><span>Province coperte: Torino e Asti</span></div>
+  </div>
+</div></section>
+
+<!-- PRODUCTS -->
+<section class="products"><div class="wrap">
+  <div class="sec-head">
+    <div><div class="eyebrow rv">Prodotti</div><h2 class="rv d1">Tutto ciò che<br>chiude, <em>protegge</em><br>e fa entrare luce.</h2></div>
+    <p class="rv d2">Selezioniamo materiali certificati e li adattiamo alla tua casa: prestazioni, colori e finiture scelti insieme.</p>
+  </div>
+  <div class="pgrid">
+    <article class="card rv"><img src="assets/img/profili.jpg" alt=""><span class="num">01</span><span class="tag">Isolamento</span>
+      <div class="body"><h3>Serramenti<br>in <em>PVC</em></h3><p>Efficienti e silenziosi: la scelta ideale per isolare la casa e ridurre le dispersioni.</p></div><span class="go">↗</span></article>
+    <article class="card rv d1"><img src="assets/img/posa.jpg" alt=""><span class="num">02</span><span class="tag">Design</span>
+      <div class="body"><h3>Alluminio e<br><em>taglio termico</em></h3><p>Linee essenziali e solidità, con l'isolamento di un sistema a taglio termico.</p></div><span class="go">↗</span></article>
+    <article class="card rv"><img src="assets/img/porta.jpg" alt=""><span class="num">03</span><span class="tag">Sicurezza</span>
+      <div class="body"><h3>Porte interne<br>e <em>blindate</em></h3><p>Dalla porta d'ingresso agli interni, coerenti con lo stile della casa.</p></div><span class="go">↗</span></article>
+    <article class="card rv d1"><img src="assets/img/luce.jpg" alt=""><span class="num">04</span><span class="tag">Privacy</span>
+      <div class="body"><h3>Tapparelle e<br><em>zanzariere</em></h3><p>Gestisci luce, aria e riservatezza in ogni stanza.</p></div><span class="go">↗</span></article>
+    <article class="card rv d2"><img src="assets/img/tende.jpg" alt=""><span class="num">05</span><span class="tag">Outdoor</span>
+      <div class="body"><h3>Tende<br>da <em>sole</em></h3><p>Ombra e comfort per terrazzi, balconi e giardini.</p></div><span class="go">↗</span></article>
+  </div>
+</div></section>
+
+<!-- FEATURE -->
+<section class="feature"><div class="wrap grid">
+  <div class="media">
+    <img class="on" src="assets/img/hero.jpg" alt="">
+    <img src="assets/img/luce.jpg" alt="">
+    <img src="assets/img/blindata.jpg" alt="">
+    <img src="assets/img/colori.jpg" alt="">
+    <div class="badge"><b id="fnum">01</b><span>/ 04 · Perché cambiare i serramenti</span></div>
+  </div>
+  <div>
+    <div class="eyebrow">Perché sceglierci</div>
+    <h2>Quattro ragioni<br>che senti <em>ogni giorno</em>.</h2>
+    <p class="lead">Un serramento nuovo non è solo estetica: incide sul benessere, sul silenzio e sui consumi della casa.</p>
+    <div class="fitem on" data-i="0"><div class="k">01 · Comfort termico</div><h3>Più calore d'inverno, più fresco d'estate.</h3><p>Sistemi in PVC e a taglio termico che riducono le dispersioni e rendono la casa più facile da gestire, anche dal punto di vista energetico.</p><ul><li>PVC</li><li>Taglio termico</li><li>Vetri isolanti</li></ul></div>
+    <div class="fitem" data-i="1"><div class="k">02 · Silenzio e luce</div><h3>Fuori la città, dentro la luce.</h3><p>Ambienti più silenziosi e luminosi, con tapparelle e schermature per decidere quanta luce far entrare.</p><ul><li>Isolamento acustico</li><li>Tapparelle</li><li>Zanzariere</li></ul></div>
+    <div class="fitem" data-i="2"><div class="k">03 · Sicurezza</div><h3>Una casa protetta, senza rinunce.</h3><p>Porte blindate e serramenti robusti, installati a regola d'arte con marchi affidabili.</p><ul><li>Porte blindate</li><li>Dierre</li><li>Barrier</li></ul></div>
+    <div class="fitem" data-i="3"><div class="k">04 · Su misura</div><h3>Colori e finiture scelti con te.</h3><p>Ogni intervento nasce dall'ascolto: valutiamo spazi ed esigenze e progettiamo la soluzione più adatta.</p><ul><li>Campionari</li><li>Finiture legno</li><li>Colori RAL</li></ul></div>
+  </div>
+</div></section>
+
+<!-- RISTRUTTURAZIONI -->
+<section class="reno">
+  <div class="bg" id="renoBg"><img src="assets/img/ristrutturazione.jpg" alt="Ambiente ristrutturato"></div>
+  <div class="wrap">
+    <div class="eyebrow rv">Ristrutturazioni chiavi in mano</div>
+    <h2 class="rv d1">Un solo <em>referente</em>, dall'inizio alla consegna.</h2>
+    <p class="lead rv d2">Coordinamento, tempi e qualità delle lavorazioni gestiti da noi: meno imprevisti, meno stress, un risultato curato in ogni dettaglio.</p>
+    <div class="svc rv d3">
+      <div><b>Demolizioni</b><span>Preparazione del cantiere</span></div>
+      <div><b>Impianti</b><span>Lavori tecnici su misura</span></div>
+      <div><b>Cartongesso</b><span>Pareti, controsoffitti, decorazioni</span></div>
+      <div><b>Finiture</b><span>Controllo finale e consegna</span></div>
+    </div>
+  </div>
+</section>
+
+<!-- METODO -->
+<section class="method"><div class="wrap">
+  <div class="sec-head">
+    <div><div class="eyebrow rv">Il metodo</div><h2 class="rv d1">Chiaro, ordinato,<br><em>senza sorprese</em>.</h2></div>
+    <p class="rv d2">Dal primo contatto alla consegna, indicazioni chiare su ogni lavorazione e un'organizzazione pensata per ridurre i tempi.</p>
+  </div>
+  <div class="steps">
+    <div class="step rv"><span class="pill">Gratuito</span><span class="n">01</span><h3>Sopralluogo</h3><p>Veniamo da te, ascoltiamo le esigenze e prendiamo le misure.</p></div>
+    <div class="step rv d1"><span class="pill">Gratuito</span><span class="n">02</span><h3>Preventivo</h3><p>Una proposta chiara, con materiali e lavorazioni spiegati.</p></div>
+    <div class="step rv d2"><span class="n">03</span><h3>Posa</h3><p>Installazione precisa e cantiere pulito, con i nostri tecnici.</p></div>
+    <div class="step rv d3"><span class="n">04</span><h3>Verifica</h3><p>Controlli finali e assistenza attenta anche dopo la consegna.</p></div>
+  </div>
+</div></section>
+
+<!-- LAVORI -->
+<section class="works" id="works">
+  <div class="wrap sec-head">
+    <div><div class="eyebrow">Progetti realizzati</div><h2>Lavori veri,<br><em>case vere</em>.</h2></div>
+    <p>Alcuni dei cantieri seguiti a Torino e provincia. Scorri per vederli.</p>
+  </div>
+  <div class="hscroll" id="hs">
+    <div class="wk"><div class="ph"><img src="assets/img/lavoro-2.jpg" alt=""></div><div class="meta"><b>Nuova costruzione</b><span>Serramenti</span></div></div>
+    <div class="wk"><div class="ph"><img src="assets/img/lavoro-1.jpg" alt=""></div><div class="meta"><b>Scuri in legno</b><span>Sostituzione</span></div></div>
+    <div class="wk"><div class="ph"><img src="assets/img/montaggio.jpg" alt=""></div><div class="meta"><b>Posa in opera</b><span>PVC</span></div></div>
+    <div class="wk"><div class="ph"><img src="assets/img/lavoro-3.jpg" alt=""></div><div class="meta"><b>Villa unifamiliare</b><span>Serramenti</span></div></div>
+    <div class="wk"><div class="ph"><img src="assets/img/lavoro-4.jpg" alt=""></div><div class="meta"><b>Consegna materiali</b><span>Cantiere</span></div></div>
+    <div class="wk"><div class="ph"><img src="assets/img/progetto.jpg" alt=""></div><div class="meta"><b>Progettazione</b><span>Su misura</span></div></div>
+  </div>
+</section>
+
+<!-- AREA -->
+<section class="area"><div class="wrap grid">
+  <div>
+    <div class="eyebrow rv">Dove operiamo</div>
+    <h2 class="rv d1">Torino, Asti<br>e tutto il <em>Piemonte</em>.</h2>
+    <p class="rv d2">Sopralluoghi rapidi e assistenza concreta, con lo stesso standard in ogni intervento.</p>
+    <div class="towns rv d3">
+      <span>Torino</span><span>Moncalieri</span><span>Collegno</span><span>Rivoli</span><span>Nichelino</span><span>Settimo T.se</span><span>Grugliasco</span><span>Chieri</span><span>Pinerolo</span><span>Venaria Reale</span><span>Asti</span><span>Nizza Monferrato</span><span>Canelli</span><span>San Damiano d'Asti</span><span>+ comuni vicini</span>
+    </div>
+  </div>
+  <div class="map rv">
+    <!-- mappa stilizzata, non geografica -->
+    <svg viewBox="0 0 400 400" aria-hidden="true">
+      <defs><pattern id="g" width="20" height="20" patternUnits="userSpaceOnUse"><circle cx="1" cy="1" r="1" fill="rgba(255,255,255,.12)"/></pattern></defs>
+      <rect width="400" height="400" fill="url(#g)"/>
+      <path d="M150 210 Q 230 200 285 245" stroke="#b4925e" stroke-width="1.2" stroke-dasharray="4 6" fill="none"/>
+      <circle cx="150" cy="210" r="90" fill="rgba(180,146,94,.08)" stroke="rgba(180,146,94,.35)"/>
+      <circle cx="285" cy="245" r="60" fill="rgba(180,146,94,.06)" stroke="rgba(180,146,94,.3)"/>
+      <circle class="pulse" cx="150" cy="210" r="10" fill="#b4925e"/>
+      <circle cx="150" cy="210" r="6" fill="#d4b483"/>
+      <circle class="pulse" cx="285" cy="245" r="8" fill="#b4925e" style="animation-delay:1.2s"/>
+      <circle cx="285" cy="245" r="5" fill="#d4b483"/>
+      <text x="150" y="182" fill="#fff" font-family="Inter Tight" font-size="15" text-anchor="middle">Torino</text>
+      <text x="285" y="222" fill="#fff" font-family="Inter Tight" font-size="15" text-anchor="middle">Asti</text>
+      <text x="24" y="376" fill="rgba(255,255,255,.4)" font-family="Inter Tight" font-size="10" letter-spacing="3">SHOWROOM · VIA VIGLIANI 199</text>
+    </svg>
+  </div>
+</div></section>
+
+<!-- CTA -->
+<section class="cta"><div class="wrap">
+  <div class="cta-box">
+    <img class="bg" src="assets/img/tende.jpg" alt="">
+    <div>
+      <div class="eyebrow">Contatti</div>
+      <h2>Iniziamo<br>dal <em>sopralluogo</em>.<br>È gratuito.</h2>
+      <p class="lead" style="color:rgba(255,255,255,.7);max-width:42ch">Raccontaci cosa vuoi cambiare: ti richiamiamo per fissare un appuntamento a Torino e provincia.</p>
+      <div class="info">
+        <div><small>Telefono</small>(+39) 327 663 9954</div>
+        <div><small>Email</small>andreas.serramenti@gmail.com</div>
+        <div><small>Showroom</small>Via Onorato Vigliani, 199 — 10127 Torino</div>
+      </div>
+    </div>
+    <div class="form" aria-label="Anteprima modulo (non attivo)">
+      <h4>Richiedi un preventivo</h4>
+      <div class="field">Nome e cognome</div>
+      <div class="field">Telefono</div>
+      <div class="field">Email</div>
+      <div style="font-size:13px;color:rgba(255,255,255,.5);margin-top:8px">Tipo di intervento</div>
+      <div class="chips"><span class="on">Serramenti</span><span>Porte</span><span>Tapparelle</span><span>Tende</span><span>Ristrutturazione</span></div>
+      <div class="field">Messaggio</div>
+      <span class="btn btn-brass">Invia la richiesta <span class="arr">→</span></span>
+    </div>
+  </div>
+</div></section>
+
+<footer><div class="wrap">
+  <div class="fgrid">
+    <div>
+      <div class="logo"><svg><use href="#mark"/></svg><div class="word"><span class="as">AS</span><span class="ser">Serramenti</span></div></div>
+      <p class="claim">Serramenti su misura e posa precisa, a Torino.</p>
+    </div>
+    <div><h5>Prodotti</h5><ul><li>Serramenti in PVC</li><li>Alluminio e taglio termico</li><li>Porte interne e blindate</li><li>Tapparelle e zanzariere</li><li>Tende da sole</li></ul></div>
+    <div><h5>Servizi</h5><ul><li>Ristrutturazioni</li><li>Impianti</li><li>Cartongesso</li><li>Progetti realizzati</li></ul></div>
+    <div><h5>Orari</h5><ul><li>Lun–Sab</li><li>9:00–12:30 · 15:00–19:00</li><li>Domenica chiuso</li></ul></div>
+  </div>
+  <div class="giant">AS <em>Serramenti</em></div>
+  <div class="legal"><span>TORINOINFISSI 2.0 di Costin Daniel · P.IVA 12986230014</span><span>Privacy · Cookie · Mockup homepage — v0.1</span></div>
+</div></footer>
+
+<script>
+// hero "finestra" che si apre
+addEventListener('load',()=>requestAnimationFrame(()=>document.getElementById('hero').classList.add('open')));
+setTimeout(()=>document.getElementById('hero').classList.add('open'),1200);
+
+// manifesto: parole che si accendono allo scroll
+const P=document.getElementById('words');
+P.innerHTML=P.innerHTML.replace(/(<em>.*?<\/em>|[^\s<]+)/g,'<span class="w">$1</span>');
+const W=[...P.querySelectorAll('.w')];
+
+// reveal + contatori
+const io=new IntersectionObserver(es=>es.forEach(e=>{if(!e.isIntersecting)return;e.target.classList.add('in');io.unobserve(e.target);
+  const b=e.target.querySelector('[data-count]');if(b){const n=+b.dataset.count,sup=b.querySelector('sup');let t0;const f=t=>{t0??=t;const k=Math.min((t-t0)/1400,1);b.firstChild.nodeValue=Math.round(n*(1-Math.pow(1-k,3)));k<1&&requestAnimationFrame(f)};b.firstChild.nodeValue='0';requestAnimationFrame(f)}
+}),{threshold:.18});
+document.querySelectorAll('.rv').forEach(el=>io.observe(el));
+
+// feature: cambia immagine in base al punto attivo
+const items=[...document.querySelectorAll('.fitem')],imgs=[...document.querySelectorAll('.feature .media img')],fnum=document.getElementById('fnum');
+const fo=new IntersectionObserver(es=>es.forEach(e=>{if(!e.isIntersecting)return;const i=+e.target.dataset.i;
+  items.forEach(x=>x.classList.toggle('on',x===e.target));imgs.forEach((m,j)=>m.classList.toggle('on',j===i));fnum.textContent='0'+(i+1)}),{rootMargin:'-45% 0px -45% 0px'});
+items.forEach(x=>fo.observe(x));
+
+const hs=document.getElementById('hs'),works=document.getElementById('works'),reno=document.getElementById('renoBg');
+function onScroll(){
+  const y=scrollY,vh=innerHeight;
+  document.body.classList.toggle('scrolled',y>60);
+  const r=P.getBoundingClientRect(),k=Math.min(Math.max((vh*.85-r.top)/(r.height+vh*.35),0),1);
+  W.forEach((w,i)=>w.classList.toggle('on',i<k*W.length));
+  const rr=reno.parentElement.getBoundingClientRect();reno.style.transform=`translateY(${rr.top*-.12}px)`;
+  const wr=works.getBoundingClientRect(),max=hs.scrollWidth-innerWidth;
+  hs.style.transform=`translateX(${-Math.min(Math.max((vh-wr.top)/(wr.height+vh),0),1)*max}px)`;
+}
+addEventListener('scroll',onScroll,{passive:true});onScroll();
+</script>
+</body>
+</html>
