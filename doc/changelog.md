@@ -1,5 +1,10 @@
 # Changelog
 
+## 2026-11-11 · Avviso "sito dimostrativo"
+**Cosa:** all'apertura della homepage compare una finestra che avvisa che il sito è dimostrativo e che i diritti d'autore sono di Codrin Bitculescu. Si chiude con il pulsante "Ho capito, entra" o con il tasto Esc. Anche il footer riporta la stessa dicitura.
+**Perché / Dettagli:** richiesta dell'utente, per presentare la proposta al cliente in modo tutelato. Finestra nativa `<dialog>` in fondo a `index.html`.
+**Verifica:** controllata a schermo su desktop e mobile.
+
 ## 2026-11-10 · Primo push su GitHub
 **Cosa:** creato il repository con il contenuto di `Nuovo-Sito/` e caricato su github.com/KCodrin/as-serramenti, ramo `main`. Esclusi i file `.DS_Store`.
 **Verifica:** push completato senza errori.
